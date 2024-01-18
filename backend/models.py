@@ -10,6 +10,7 @@ class User (db.Model):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     average_stars=db.Column(db.String)
     profile_photo=db.Column(db.String)
+    
     reviews = db.relationship('reviews',backref="users")
     
     
@@ -36,7 +37,7 @@ class Business(db.Model):
     closed_in=db.Column(db.Time)
     
     category_id=db.Column(db.integer,db.ForeignKey("categories.id"))
-    
+        
     reviews=db.relationship('reviews',backref="businesses")
     
 class Category(db.Model):
